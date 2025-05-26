@@ -1,52 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Game</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <!--The quiz screen-->
-        <div class="screen active" id="start-screen">
-            <h1>Quiz Time!</h1>
-            <p>Test your knowledge with these fun questions</p>
-            <button id="start-button">Start Quiz</button>
-        </div>
-        <!--The quiz screen-->
-        <div class="screen" id="quiz-screen">
-            <div class="quiz-header">
-                <h2 id="question-text">Question goes here</h2><!--The Question text will update with the actual question-->
-                <div class="quiz-info" >
-                    <p>
-                        Quesion <span id="curren-question">1</span> of <span>5</span> <!--span since the question number will change since its dynamic-->
-                    </p>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quiz Game</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <!--The quiz screen-->
+            <div class="screen active" id="start-screen">
+                <h1>Quiz Time!</h1>
+                <p>Test your knowledge with these fun questions</p>
+                <button id="start-btn">Start Quiz</button>
+            </div>
+            <!--The quiz screen-->
+            <div class="screen" id="quiz-screen">
+                <div class="quiz-header">
+                    <h2 id="question-text">Question goes here</h2><!--The Question text will update with the actual question-->
+                    <div class="quiz-info" >
+                        <p>
+                            Quesion <span id="current-question">1</span> of <span id="total-questions">5</span> <!--span since the question number will change since its dynamic-->
+                        </p>
 
-                    <p>
-                        <!--Score is also dynamic, initial score should be 0-->
-                        Score: <span id="score">0</span> <!--id is used so we can select it from javascript later-->
-                    </p>
+                        <p>
+                            <!--Score is also dynamic, initial score should be 0-->
+                            Score: <span id="score">0</span> <!--id is used so we can select it from javascript later-->
+                        </p>
+                    </div>
+                </div>
+                <!--answers container-->
+                <div class="answers-container" id="answers-container">
+                    <!-- Answer buttons will be inserted here from javascript code later -->
+                </div>
+                <!-- progress bar -->
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
                 </div>
             </div>
-            <!--answers container-->
-            <div class="answers-container" id="answers-container">
-                <!-- Answer buttons will be inserted here from javascript code later -->
+            <!-- Result screen -->
+            <div class="screen" id="result-screen">
+                <h1>Quiz results</h1>
+                <div class="result-info">
+                    <p>You scored <span id="final-score">0</span>out of <span id="max-score">5</span></p>  <!--Span since final score will be dynamic-->
+                    <div id="result-message">Good job</div>
+                </div>
+                <button id="restart-btn">Restart Quiz</button>
             </div>
-            <!-- progress bar -->
-            <div class="progress-bar">
-                <div class="progress" id="progress"></div>
-            </div>
-        </div>
-        <!-- Result screen -->
-        <div class="screen" id="result-screen">
-            <h1>Quiz results</h1>
-            <div class="result-info">
-                <p>You scored <span id="final-score">0</span>out of <span id="max-score">5</span></p>  <!--Span since final score will be dynamic-->
-                <div id="result-message">Good job</div>
-            </div>
-            <button id="restart-btn">Restart Quiz</button>
-        </div>
-    </div> 
-</body>
+        </div> 
+
+        <script src="script.js"></script>
+    </body>
 </html>
