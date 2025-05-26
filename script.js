@@ -82,6 +82,7 @@ startButton.addEventListener("click", startQuiz);
 restartButton.addEventListener("click", restartQuiz);
 
 function startQuiz(){
+    console.log(Array.from(answersContainer.children).forEach((el)=> console.log(el)));
     // reset vars
     currentQuestionIndex = 0;
     scoreSpan.textContent = 0;
@@ -135,7 +136,7 @@ function selectAnswer(event) {
     Array.from(answersContainer.children).forEach(button =>{
         if(button.dataset.correct ==="true"){
             button.classList.add("correct");
-        }else{
+        }else if(button === selectedButton){
             button.classList.add("incorrect");
         }
     });
@@ -160,7 +161,7 @@ function selectAnswer(event) {
 
 function showResults(){
     quizScreen.classList.remove("active")
-    resultScreen.classList.remove("active")
+    resultScreen.classList.add("active")
 
     finalScoreSpan.textContent = score;
 
@@ -181,6 +182,8 @@ function showResults(){
 
 
 function restartQuiz(){
-    console.log("quiz re-started");
+    resultScreen.classList.remove("active");
+
+    startQuiz();
 
 }
