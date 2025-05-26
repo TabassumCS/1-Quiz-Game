@@ -88,7 +88,77 @@ function startQuiz(){
 
     startScreen.classList.remove("active");
     quizScreen.classList.add("active");
+
+    showQuestion();
 }
+
+function showQuestion(){
+    //reset state
+    answersDisabled = false;
+
+    const currentQuestion = quizQuestions[currentQuestionIndex];
+
+    currentQuestionSpan.textContent = currentQuestionIndex + 1;
+
+    //update progress bar
+
+    const progressPresent = (currentQuestionIndex / quizQuestions.length) * 100;
+    progressBar.style.width = progressPresent + "%";
+
+    questionText.textContent = currentQuestion.question;
+
+    answersContainer.innerHTML = "";
+
+    currentQuestion.answers. forEach(answer => {
+        const button = document.createElement("button");
+        button.textContent = answer.text;
+        button.classList.add("answer-btn");
+
+        //dataset is a property of the button element that allows you to store custom data
+        button.dataset.correct = answer.correct;
+
+        //click event
+        button.addEventListener("click", selectAnswer);
+
+        answersContainer.appendChild(button);
+    })
+}
+
+function selectAnswer(event) {
+    if(answersDisabled) return
+
+    answersDisabled = true;
+
+    const selectedButton = event.target;
+    const isCorrect = selectedButton.dataset.correct === "true";
+
+    Array.from(answersContainer.children).forEach(button =>{
+        if(button.dataset.correct ==="true"){
+            button.classList.add("correct");
+        }else{
+            button.classList.add("incorrect");
+        }
+    });
+
+    if(isCorrect) {
+        score++;
+        scoreSpan.textContent = score;
+    }
+
+    setTimeout(() => {
+        currentQuestionIndex++;
+
+        //chech if there are more questions or if the quiz if over
+        if(currentQuestionIndex < quizQuestions.length){
+            showQuestion()
+        }else{
+            showResults()
+        }
+    },1000)
+
+}
+
+
 
 function restartQuiz(){
     console.log("quiz re-started");
