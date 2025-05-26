@@ -36,7 +36,7 @@ Users can start the quiz, answer multiple-choice questions, see their score, and
 ## 🌟 Live Demo
 
 Check out the live version of the quiz app here:  
-**[Your Live Link Here]**
+**[Your Live Link Here](https://tabassumcs.github.io/1-Quiz-Game/)**
 
 ---
 
