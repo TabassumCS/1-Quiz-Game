@@ -131,7 +131,8 @@ body{
 }
 
 .result-info {
-    background-color: #fff0f0;
+    border: 5px solid #7F55B1;
+    background-color: #f1c3c3;
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 30px;
