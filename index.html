@@ -17,7 +17,6 @@
         <!--The quiz screen-->
         <div class="screen" is="quiz-screen">
             <div class="quiz-header">
-
                 <h2 id="question-text">Question goes here</h2><!--The Question text will update with the actual question-->
                 <div class="quiz-info" >
                     <p>
@@ -30,15 +29,24 @@
                     </p>
                 </div>
             </div>
+            <!--answers container-->
+            <div class="answers-container" id="answers-container">
+                <!-- Answer buttons will be inserted here from javascript code later -->
+            </div>
+            <!-- progress bar -->
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+        </div>
+        <!-- Result screen -->
+        <div class="screen" id="result-screen">
+            <h1>Quiz results</h1>
+            <div class="result-info">
+                <p>You scored</p>  <!--Span since final score will be dynamic-->
+            </div>
 
-
-
-           
         </div>
 
-
-    </div>
-    
-    
+    </div> 
 </body>
 </html>
